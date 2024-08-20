@@ -1,10 +1,10 @@
-package com.cenkeraydin.composeloginui.ui.component
+package com.cenkeraydin.composeloginui.ui.components
 
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -26,12 +25,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cenkeraydin.composeloginui.R
-import com.cenkeraydin.composeloginui.ui.theme.ComposeLoginUITheme
-import com.cenkeraydin.composeloginui.ui.theme.PrimaryPink
 
 @Composable
 fun CustomTextTitle(text: String) {
@@ -126,20 +122,78 @@ fun ActionButton(
     }
 }
 
-@Preview
 @Composable
-private fun ActionButtonPreview() {
-    ComposeLoginUITheme {
-        ActionButton(
-            text = "Action text",
-            isNavigationArrowVisible = true,
-            onClicked = {},
-            colors = ButtonDefaults.buttonColors(
-                contentColor = Color.White,
-                containerColor = PrimaryPink
-            ),
-            shadowColor = PrimaryPink
+fun AuthText(text: String){
+    Text(
+        text = text,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier
+            .padding(top = 16.dp),
+        color = Color.Black
+    )
+}
+
+@Composable
+fun DividerLogin(){
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 24.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Box(
+            modifier = Modifier
+                .height(1.dp)
+                .weight(1f)
+                .background(Color.Black)
+        )
+        Text(
+            text = "Or Login With",
+            fontSize = 14.sp,
+            modifier = Modifier.padding(start = 8.dp, end = 8.dp),
+            color = Color.Black
+        )
+        Box(
+            modifier = Modifier
+                .height(1.dp)
+                .weight(1f)
+                .background(Color.Black)
         )
     }
 }
+
+@Composable
+fun DividerSignUp(){
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 24.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Box(
+            modifier = Modifier
+                .height(1.dp)
+                .weight(1f)
+                .background(Color.Black)
+        )
+        Text(
+            text = "Or Sign With",
+            fontSize = 14.sp,
+            modifier = Modifier.padding(start = 8.dp, end = 8.dp),
+            color = Color.Black
+        )
+        Box(
+            modifier = Modifier
+                .height(1.dp)
+                .weight(1f)
+                .background(Color.Black)
+        )
+    }
+
+}
+
+
+
+
 

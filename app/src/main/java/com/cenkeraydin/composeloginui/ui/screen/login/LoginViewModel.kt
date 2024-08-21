@@ -26,4 +26,9 @@ class LoginViewModel : ViewModel() {
                 }
             }
     }
+
+    fun logoutUser() {
+        auth.signOut()
+        _loginResult.value = Result.success("Logout successful")
+    }
 }

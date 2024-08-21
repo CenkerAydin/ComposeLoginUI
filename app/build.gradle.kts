@@ -60,8 +60,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation (libs.material3)
-
-    implementation(libs.navigation.compose)
+    implementation(libs.androidx.navigation.compose.v240alpha10)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)

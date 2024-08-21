@@ -11,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.cenkeraydin.composeloginui.ui.navigation.NavGraph
+import com.cenkeraydin.composeloginui.ui.screen.splash.SplashScreen
 import com.cenkeraydin.composeloginui.ui.theme.ComposeLoginUITheme
 
 class MainActivity : ComponentActivity() {
@@ -24,6 +27,8 @@ class MainActivity : ComponentActivity() {
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
+                    val navController = rememberNavController()
+                    NavGraph(navController =navController)
                 }
             }
         }

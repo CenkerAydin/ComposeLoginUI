@@ -33,10 +33,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -70,7 +72,7 @@ fun LoginScreen(
     LaunchedEffect(loginResult) {
         loginResult?.let {
             if (it.isSuccess) {
-                navController.navigate("HomeScreen")
+                navController.navigate("Home")
             } else {
                 Toast.makeText(context, it.exceptionOrNull()?.message ?: "Login failed", Toast.LENGTH_LONG).show()
             }
@@ -91,19 +93,23 @@ fun LoginScreen(
         ConstraintLayout(
             Modifier
                 .fillMaxWidth()
-                .fillMaxHeight()
+                .fillMaxHeight(),
+
         ) {
             val (topText, culm) = createRefs()
             Text(
-                text = "Login to your account",
+                text = "Welcome Back",
                 color = Color.White,
                 modifier = Modifier
-                    .padding(top = 48.dp, start = 32.dp)
-                    .fillMaxWidth()
+                    .padding(top = 100.dp,start = 100.dp)
                     .constrainAs(topText) {
                         linkTo(parent.top, culm.top, bias = 0.9f)
-                        linkTo(parent.start, parent.end, bias = 0f)
                     },
+                style = TextStyle(
+                    brush = Brush.linearGradient(
+                        colors = listOf(Color.Yellow, Color.Red)
+                    )
+                ),
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold
             )
@@ -249,8 +255,7 @@ fun LoginScreen(
                     }
                 }
                 Button(
-                    onClick = { loginViewModel.loginUser(email, password)
-                              navController.navigate("Home")},
+                    onClick = { loginViewModel.loginUser(email, password) },
                     Modifier
                         .padding(top = 16.dp, bottom = 16.dp)
                         .fillMaxWidth()

@@ -68,7 +68,7 @@ fun SignUpScreen(navController: NavController) {
     LaunchedEffect(signUpResult) {
         signUpResult?.let {
             if (it.isSuccess) {
-                navController.navigate("HomeScreen")
+                navController.navigate("Home")
             } else {
                 Toast.makeText(context, it.exceptionOrNull()?.message ?: "Sign up failed", Toast.LENGTH_LONG).show()
             }

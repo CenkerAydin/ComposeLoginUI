@@ -3,13 +3,13 @@ package com.cenkeraydin.composeloginui.ui.screen.registration
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class SignUpViewModel : ViewModel() {
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-
     private val _signUpResult = MutableLiveData<Result<String>>()
     val signUpResult: LiveData<Result<String>> = _signUpResult
 

@@ -200,14 +200,13 @@ fun AnnotatedTextSign(navController: NavController){
             .fillMaxWidth()
             .padding(16.dp),
         style = TextStyle(fontSize = 14.sp, color = Color.Black, textAlign = TextAlign.Center),
-        onClick = { offset ->
+        onClick = {offset ->
             annotatedText.getStringAnnotations(tag = "SIGN_IN", start = offset, end = offset)
                 .firstOrNull()?.let {
                     navController.navigate("LoginScreen")
                 }
         }
     )
-
 }
 
 @Composable
@@ -275,16 +274,7 @@ fun AnnotatedPasswordText(navController: NavController){
             color = Color.Black,
             textAlign = TextAlign.Center
         ),
-        onClick = { offset ->
-            annotatedTextPassword.getStringAnnotations(
-                tag = "recovery_it",
-                start = offset,
-                end = offset
-            )
-                .firstOrNull()?.let {
-                    navController.navigate("SignUpScreen")
-                }
-        }
+        onClick = { }
     )
 }
 

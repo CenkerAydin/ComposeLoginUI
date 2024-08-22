@@ -160,28 +160,24 @@ fun HomeScreen(navController: NavController) {
                 when (index) {
                     0 -> CardContent(
                         title = "Yazılım.xyz",
-                        content = "Stajyerlerin projeleri belirlenecek",
-
+                        content = "Stajyerlerin projeleri belirlenecek.",
                     )
-
                     1 -> CardContent(
-                        title = "Meeting",
-                        content = "Work\nMeeting",
+                        title = "Kotlin",
+                        content = "Kotlin basic çalışılacak.",
                     )
-
                     2 -> CardContent(
-                        title = "Book covers",
-                        content = "Book covers for the new book."
+                        title = "Jetpack Compose",
+                        content = "Jetpack Compose projesi yapılacak."
                     )
                     3 -> CardContent(
-                        title = "Buy honey ",
-                        content = "Buy honey 100% natural and organic.",
+                        title = "Navigation",
+                        content = "Navigation ile ilgili yazı yazılacak.",
                     )
                     4 -> CardContent(
-                        title = "Content Plan for project",
-                        content = "The most important aspect in the meaning that builds the mean and regard of life..."
+                        title = "Dependency Injection",
+                        content = "Dependency Injection hakkında video izlenecek."
                     )
-
                     5 -> CardContent(
                         title = "Password",
                         content = "Change password for the account.",
@@ -196,7 +192,6 @@ fun HomeScreen(navController: NavController) {
                     )
                 }
             }
-
         }
     }
 }

@@ -75,7 +75,7 @@ fun ButtonOnboarding(navController: NavController){
        horizontalArrangement = Arrangement.spacedBy(16.dp) // Adjust the spacing as needed
    ) {
        Button(
-           onClick = { navController.navigate("Home") },
+           onClick = { navController.navigate("LoginScreen") },
            Modifier
                .fillMaxWidth()
                .weight(0.5f)

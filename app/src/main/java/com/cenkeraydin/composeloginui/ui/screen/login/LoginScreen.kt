@@ -249,7 +249,8 @@ fun LoginScreen(
                     }
                 }
                 Button(
-                    onClick = { loginViewModel.loginUser(email, password) },
+                    onClick = { loginViewModel.loginUser(email, password)
+                              navController.navigate("Home")},
                     Modifier
                         .padding(top = 16.dp, bottom = 16.dp)
                         .fillMaxWidth()

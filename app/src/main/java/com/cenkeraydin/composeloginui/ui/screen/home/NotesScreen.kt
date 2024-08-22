@@ -82,8 +82,8 @@ fun NotesScreen(navController: NavController) {
             items(3) { index ->
                 when (index) {
                     0 -> NoteCard("Jetpack Compose", "Compose Projesi yapılacak.")
-                    1 -> NoteCard("Title 2", "Description 2")
-                    2 -> NoteCard("Title 3", "Description 3")
+                    1 -> NoteCard("Kotlin", "Kotlin tekrarı yapılacak.")
+
 
                 }                }
             }

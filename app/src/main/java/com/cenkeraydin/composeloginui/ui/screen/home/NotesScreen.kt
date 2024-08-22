@@ -84,16 +84,16 @@ fun NotesScreen(navController: NavController) {
                     0 -> NoteCard("Jetpack Compose", "Compose Projesi yapılacak.")
                     1 -> NoteCard("Kotlin", "Kotlin tekrarı yapılacak.")
 
-
-                }                }
+                }
             }
         }
     }
+}
 
 
 @Composable
 fun NoteCard(title: String, description: String) {
-    var completed by remember{ mutableStateOf(false) }
+    var completed by remember { mutableStateOf(false) }
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -125,7 +125,7 @@ fun NoteCard(title: String, description: String) {
                     textDecoration = if (completed) TextDecoration.LineThrough else TextDecoration.None,
                     modifier = Modifier.weight(1f)
                 )
-                Checkbox(checked = completed, onCheckedChange = {completed = it})
+                Checkbox(checked = completed, onCheckedChange = { completed = it })
             }
 
         }

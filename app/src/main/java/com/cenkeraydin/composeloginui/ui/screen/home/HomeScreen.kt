@@ -105,10 +105,12 @@ fun HomeScreen(navController: NavController) {
                     IconButton(
                         onClick = {
                             loginViewModel.logoutUser()
-                            navController.popBackStack()}) {
+                            navController.navigate("LoginScreen")
+                        }) {
                         Image(
                             painter = painterResource(R.drawable.img_logout),
-                            contentDescription ="logout" )
+                            contentDescription = "logout"
+                        )
                     }
                 }
             )
@@ -162,30 +164,37 @@ fun HomeScreen(navController: NavController) {
                         title = "Yazılım.xyz",
                         content = "Stajyerlerin projeleri belirlenecek.",
                     )
+
                     1 -> CardContent(
                         title = "Kotlin",
                         content = "Kotlin basic çalışılacak.",
                     )
+
                     2 -> CardContent(
                         title = "Jetpack Compose",
                         content = "Jetpack Compose projesi yapılacak."
                     )
+
                     3 -> CardContent(
                         title = "Navigation",
                         content = "Navigation ile ilgili yazı yazılacak.",
                     )
+
                     4 -> CardContent(
                         title = "Dependency Injection",
                         content = "Dependency Injection hakkında video izlenecek."
                     )
+
                     5 -> CardContent(
                         title = "Password",
                         content = "Change password for the account.",
                     )
+
                     6 -> CardContent(
                         title = "Design",
                         content = "Design for the new project.",
                     )
+
                     7 -> CardContent(
                         title = "Proje",
                         content = "Proje için gerekli olan görseller belirlenecek.",
@@ -214,7 +223,8 @@ fun CardContent(title: String, content: String, isCheckable: Boolean = false) {
                 overflow = TextOverflow.Clip,
                 fontWeight = FontWeight.Bold,
                 style = MaterialTheme.typography.bodyMedium,
-                color = Color.Black)
+                color = Color.Black
+            )
             Spacer(modifier = Modifier.height(8.dp))
             if (isCheckable) {
                 Row(verticalAlignment = Alignment.CenterVertically) {

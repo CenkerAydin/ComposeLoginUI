@@ -105,7 +105,7 @@ fun ButtonOnboarding(navController: NavController){
            shape = RoundedCornerShape(10.dp),
        ) {
            Text(
-               text = "Sign In",
+               text = "Sign Up",
                fontSize = 18.sp
            )
        }
@@ -249,7 +249,7 @@ fun AnnotatedTextLogin(navController: NavController){
 }
 
 @Composable
-fun AnnotatedPasswordText(navController: NavController){
+fun AnnotatedPasswordText(){
     val annotatedTextPassword = buildAnnotatedString {
         append("Forgot Your Password? ")
         pushStringAnnotation(tag = "recovery_it", annotation = "recoveryIt")

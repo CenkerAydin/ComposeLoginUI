@@ -92,10 +92,10 @@ fun SignUpScreen(navController: NavController) {
         ) {
             val (topText, culm) = createRefs()
             Text(
-                text = "Hi there! Let's get started",
+                text = "Hi there!",
                 color = Color.White,
                 modifier = Modifier
-                    .padding(top = 48.dp, start = 32.dp)
+                    .padding(top = 100.dp, start = 150.dp)
                     .fillMaxWidth()
                     .constrainAs(topText) {
                         linkTo(parent.top, culm.top, bias = 0.9f)
@@ -103,7 +103,7 @@ fun SignUpScreen(navController: NavController) {
                     },
                 style = TextStyle(
                     brush = Brush.linearGradient(
-                        colors = listOf(Color.Green, Color.Red)
+                        colors = listOf(Color.Yellow,Color.Transparent)
                     )
                 ),
                 fontSize = 30.sp,

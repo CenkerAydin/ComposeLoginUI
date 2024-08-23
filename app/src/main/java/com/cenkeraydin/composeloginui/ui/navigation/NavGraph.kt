@@ -45,7 +45,7 @@ fun NavGraph(navController: NavHostController) {
                 slideInHorizontally(
                     initialOffsetX = { 1000 },
                     animationSpec = tween(1000)
-                ) + fadeIn(animationSpec = tween(1000))
+                )
             },
         ) { OnBoardingScreen(navController) }
         composable(

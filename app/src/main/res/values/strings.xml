@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ComposeLoginUI</string>
+    <string name="items1">Görevlerinizi hızlıca oluşturun, düzenleyin ve tamamlayarak gününüzü organize edin.</string>
+    <string name="items2">Görevlerinizi kategorilere ayırarak ve öncelik sıralamasını yaparak zamanınızı daha verimli yönetin.</string>
+    <string name="items3">Hiçbir görevi kaçırmayın, hatırlatmalar ve bildirimlerle zamanında tamamlayın.</string>
+
 </resources>

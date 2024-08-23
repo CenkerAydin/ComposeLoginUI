@@ -74,7 +74,11 @@ fun LoginScreen(
             if (it.isSuccess) {
                 navController.navigate("Home")
             } else {
-                Toast.makeText(context, it.exceptionOrNull()?.message ?: "Login failed", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    it.exceptionOrNull()?.message ?: "Login failed",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     }
@@ -95,13 +99,13 @@ fun LoginScreen(
                 .fillMaxWidth()
                 .fillMaxHeight(),
 
-        ) {
+            ) {
             val (topText, culm) = createRefs()
             Text(
                 text = "Welcome Back",
                 color = Color.White,
                 modifier = Modifier
-                    .padding(top = 100.dp,start = 100.dp)
+                    .padding(top = 100.dp, start = 100.dp)
                     .constrainAs(topText) {
                         linkTo(parent.top, culm.top, bias = 0.9f)
                     },
@@ -159,16 +163,15 @@ fun LoginScreen(
                         .padding(top = 8.dp)
                         .background(Color.White, CircleShape)
                 )
-                AnnotatedPasswordText(navController =navController)
+                AnnotatedPasswordText()
                 DividerLogin()
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 16.dp)
                 ) {
-
                     Button(
-                        onClick = {  },
+                        onClick = { },
                         Modifier
                             .padding(top = 10.dp, bottom = 10.dp, end = 8.dp)
                             .weight(0.5f)
@@ -211,7 +214,7 @@ fun LoginScreen(
 
                     }
                     Button(
-                        onClick = {  },
+                        onClick = { },
                         Modifier
                             .padding(top = 10.dp, bottom = 10.dp, end = 8.dp)
                             .weight(0.5f)

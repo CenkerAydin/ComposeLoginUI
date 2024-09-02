@@ -69,9 +69,15 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.androidx.constraintlayout.compose)
 
+    //Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    //Room
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
 
     implementation(libs.androidx.runtime.livedata)
     testImplementation(libs.junit)

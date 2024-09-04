@@ -1,4 +1,4 @@
-package com.cenkeraydin.composeloginui.ui.screen.home
+package com.cenkeraydin.composeloginui.presentation.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

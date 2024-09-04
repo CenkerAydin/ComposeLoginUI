@@ -1,6 +1,5 @@
-package com.cenkeraydin.composeloginui.ui.screen.data
+package com.cenkeraydin.composeloginui.presentation.home
 
-import android.media.Image
 import androidx.compose.ui.graphics.vector.ImageVector
 
 data class BottomNavigationItem(

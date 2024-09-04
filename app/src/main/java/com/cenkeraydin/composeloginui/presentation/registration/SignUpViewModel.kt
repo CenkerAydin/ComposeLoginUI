@@ -1,9 +1,8 @@
-package com.cenkeraydin.composeloginui.ui.screen.registration
+package com.cenkeraydin.composeloginui.presentation.registration
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.navigation.NavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

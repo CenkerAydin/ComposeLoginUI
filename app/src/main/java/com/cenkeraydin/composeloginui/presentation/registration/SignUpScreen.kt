@@ -1,4 +1,4 @@
-package com.cenkeraydin.composeloginui.ui.screen.registration
+package com.cenkeraydin.composeloginui.presentation.registration
 
 
 import android.widget.Toast

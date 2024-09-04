@@ -1,4 +1,4 @@
-package com.cenkeraydin.composeloginui.ui.screen.home
+package com.cenkeraydin.composeloginui.presentation.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -79,58 +79,13 @@ fun NotesScreen(navController: NavController) {
                 .padding(values)
         )
         {
-            items(3) { index ->
-                when (index) {
-                    0 -> NoteCard("Jetpack Compose", "Compose Projesi yapılacak.")
-                    1 -> NoteCard("Kotlin", "Kotlin tekrarı yapılacak.")
-
-                }
-            }
-        }
-    }
-}
-
-
-@Composable
-fun NoteCard(title: String, description: String) {
-    var completed by remember { mutableStateOf(false) }
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            contentColor = Color.Black
-        )
-    ) {
-        Column(
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth()
-        ) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold,
-                textDecoration = if (completed) TextDecoration.LineThrough else TextDecoration.None,
-                modifier = Modifier.padding(bottom = 8.dp)
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = description,
-                    style = MaterialTheme.typography.bodyMedium,
-                    textDecoration = if (completed) TextDecoration.LineThrough else TextDecoration.None,
-                    modifier = Modifier.weight(1f)
-                )
-                Checkbox(checked = completed, onCheckedChange = { completed = it })
-            }
 
         }
     }
 }
+
+
+
 
 @Composable
 @Preview

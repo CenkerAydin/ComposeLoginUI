@@ -1,4 +1,4 @@
-package com.cenkeraydin.composeloginui.ui.screen.home
+package com.cenkeraydin.composeloginui.presentation.home
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
@@ -12,15 +12,22 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.lazy.staggeredgrid.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.Badge
@@ -56,8 +63,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.cenkeraydin.composeloginui.R
-import com.cenkeraydin.composeloginui.ui.screen.data.BottomNavigationItem
-import com.cenkeraydin.composeloginui.ui.screen.login.LoginViewModel
+import com.cenkeraydin.composeloginui.data.local.model.Note
+import com.cenkeraydin.composeloginui.presentation.login.LoginViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -158,128 +165,110 @@ fun HomeScreen(navController: NavController) {
             verticalArrangement = Arrangement.spacedBy(8.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(9) { index ->
-                when (index) {
-                    0 -> CardContent(
-                        title = "Yazılım.xyz",
-                        content = "Stajyerlerin projeleri belirlenecek.",
-                    )
 
-                    1 -> CardContent(
-                        title = "Kotlin",
-                        content = "Kotlin basic çalışılacak.",
-                    )
+        }
+    }
+}
 
-                    2 -> CardContent(
-                        title = "Jetpack Compose",
-                        content = "Jetpack Compose projesi yapılacak."
-                    )
 
-                    3 -> CardContent(
-                        title = "Navigation",
-                        content = "Navigation ile ilgili yazı yazılacak.",
-                    )
 
-                    4 -> CardContent(
-                        title = "Dependency Injection",
-                        content = "Dependency Injection hakkında video izlenecek."
-                    )
+@Composable
+fun HomeDetail(
+    notes: List<Note>,
+    modifier: Modifier,
+    onFavoriteChanged: (note: Note) -> Unit,
+    onDeletNote:(Long) -> Unit,
+    onNoteClicked: (Long) -> Unit
+){
+    LazyVerticalStaggeredGrid(
+        columns = StaggeredGridCells.Fixed(2),
+        contentPadding = PaddingValues(4.dp),
+        modifier = Modifier
+    ) {
+        itemsIndexed(notes){index,note ->
+            NoteCard(index, note, onFavoriteChanged, onDeletNote, onNoteClicked)
 
-                    5 -> CardContent(
-                        title = "Password",
-                        content = "Change password for the account.",
-                    )
-
-                    6 -> CardContent(
-                        title = "Design",
-                        content = "Design for the new project.",
-                    )
-
-                    7 -> CardContent(
-                        title = "Proje",
-                        content = "Proje için gerekli olan görseller belirlenecek.",
-                    )
-                }
-            }
         }
     }
 }
 
 @Composable
-fun CardContent(title: String, content: String, isCheckable: Boolean = false) {
+fun NoteCard(
+    index: Int,
+    note: Note,
+    onFavoriteChanged: (note: Note) -> Unit,
+    onDeletNote:(Long) -> Unit,
+    onNoteClicked: (Long) -> Unit
+){
+    val isEvenIndex = index %2==0
+    val shape = when{
+        isEvenIndex ->{
+            RoundedCornerShape(
+                topStart = 50f,
+                bottomEnd = 50f
+            )
+        }else -> {
+            RoundedCornerShape(
+                topEnd = 50f,
+                bottomStart = 50f)
+
+        }
+    }
+    val icon = if (note.isFavorite) Icons.Default.Favorite else Icons.Outlined.FavoriteBorder
+
     Card(
-        shape = RoundedCornerShape(16.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp)
-    ) {
+            .padding(4.dp),
+        shape =shape,
+        onClick = { onNoteClicked(note.id)}
+    ){
+
         Column(
             modifier = Modifier
-                .padding(16.dp)
+                .fillMaxWidth()
+                .padding(8.dp)
         ) {
             Text(
-                text = title,
-                fontSize = 16.sp,
-                overflow = TextOverflow.Clip,
+                text = note.title,
                 fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.Black
+                maxLines = 1,
+                style = MaterialTheme.typography.titleMedium
             )
-            Spacer(modifier = Modifier.height(8.dp))
-            if (isCheckable) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Checkbox(checked = false, onCheckedChange = {})
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = content.split("\n")[0], color = Color.Black)
+            Spacer(modifier = Modifier.size(4.dp))
+            Text(
+                text = note.content,
+                maxLines = 4,
+                overflow = TextOverflow.Ellipsis,
+                style = MaterialTheme.typography.bodyMedium
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                IconButton(onClick = { onDeletNote(note.id)}) {
+                    Icon(
+                        imageVector = Icons.Default.Delete,
+                        contentDescription = null
+                    )
                 }
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Checkbox(checked = false, onCheckedChange = {})
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = content.split("\n")[1], color = Color.Black)
+                IconButton(onClick = { onFavoriteChanged(note)}) {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null
+                    )
                 }
-            } else {
-                Text(
-                    text = content,
-                    color = Color.Black,
-                    maxLines = 3,
-                    overflow = TextOverflow.Ellipsis
-                )
+
+
             }
         }
+
+
     }
+
+
 }
 
-@Composable
-fun CardImageContent(title: String, @DrawableRes imageRes: Int) {
-    Card(
-        shape = RoundedCornerShape(16.dp),
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp)
-    ) {
-        Column(
-            modifier = Modifier
-                .padding(16.dp)
-        ) {
-            Image(
-                painter = painterResource(id = imageRes),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(120.dp)
-                    .clip(RoundedCornerShape(12.dp)),
-                contentScale = ContentScale.Crop
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = title, style = MaterialTheme.typography.bodyMedium, color = Color.Black)
-        }
-    }
-}
-
-@Composable
-@Preview
-fun HomeScreenPreview() {
-    HomeScreen(navController = rememberNavController())
-}
 
 

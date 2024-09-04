@@ -1,4 +1,4 @@
-package com.cenkeraydin.composeloginui.ui.screen.onboarding
+package com.cenkeraydin.composeloginui.presentation.onboarding
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -18,7 +18,6 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -36,7 +35,6 @@ import com.cenkeraydin.composeloginui.R
 import com.cenkeraydin.composeloginui.ui.component.ButtonOnboarding
 import com.cenkeraydin.composeloginui.ui.component.CustomTextDescription
 import com.cenkeraydin.composeloginui.ui.component.CustomTextTitle
-import com.cenkeraydin.composeloginui.ui.theme.PrimaryPink
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

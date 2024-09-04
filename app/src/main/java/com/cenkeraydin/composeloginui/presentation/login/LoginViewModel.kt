@@ -1,10 +1,8 @@
-package com.cenkeraydin.composeloginui.ui.screen.login
+package com.cenkeraydin.composeloginui.presentation.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginViewModel() : ViewModel() {

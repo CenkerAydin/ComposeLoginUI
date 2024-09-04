@@ -1,4 +1,4 @@
-package com.cenkeraydin.composeloginui.ui.screen.login
+package com.cenkeraydin.composeloginui.presentation.login
 
 
 import android.widget.Toast

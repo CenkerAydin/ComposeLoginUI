@@ -1,4 +1,4 @@
-package com.cenkeraydin.composeloginui.ui.screen.splash
+package com.cenkeraydin.composeloginui.presentation.splash
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -28,7 +28,7 @@ import kotlinx.coroutines.delay
 fun SplashScreen(navController: NavController){
     LaunchedEffect(Unit) {
         delay(3000L)
-        navController.navigate("OnBoardingScreen")
+        navController.navigate("Home")
     }
     Image(
             modifier = Modifier.fillMaxSize(),
